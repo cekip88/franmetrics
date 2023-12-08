@@ -1,0 +1,20 @@
+extends template/main
+append vars
+	-
+		page_title = 'Main'
+block content
+	section.welcome
+		.section
+			.welcome-info
+				h4.ttu.bold For Franchisors & Franchisees
+				h1.title
+					span.green A franchise growth
+					span & KPI Tracking Software
+				h4.bold Get actionable data to support franchisees and your ITEM 19!
+				.welcome-info-btns
+					button.btn-green
+						span Try for free
+					button.btn
+						span Explore
+			.welcome-img
+				+img('welcome-img.png')

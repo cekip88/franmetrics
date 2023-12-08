@@ -1,0 +1,244 @@
+button
+	white-space nowrap
+svg
+	wh(28px)
+a
+	color RGB($black)
+	
+body
+	font 14px $f_reg
+	color RGB($black)
+	background-color RGB($grayLight)
+	&.non-overflow
+		overflow hidden
+		+tablet()
+			overflow initial
+	+desktop()
+		font-size 16px
+
+font_inc($f_reg,'GoogleSans-Regular.woff2')
+font_inc($f_bold,'GoogleSans-Bold.woff2')
+
+h4
+	+tablet-large()
+		font-size 24px
+.ttu
+	text-transform uppercase
+.bold
+	font-family $f_bold
+	
+.title
+	df(flex-start)
+	flex-direction column
+	text-transform uppercase
+	font-family $f_bold
+	font-size 2em
+	letter-spacing -0.02em
+	+tablet()
+		font-size 3em
+	+desktop()
+		font-size 4em
+		line-height 4.375em
+	.green
+		color RGB($greenDark)
+
+.section
+	w(100%)
+	p(0 20px)
+	+desktop()
+		w(1238px)
+		m(0 auto)
+		p(0)
+
+.btn
+	border-color RGB($black)
+	color RGB($black)
+	+desktop()
+		&:hover
+			border-color RGB($black)
+			background-color RGB($black)
+	&,&-green
+		min-width 100px
+		p(11px 20px 9px)
+		border 2px solid
+		border-radius 59px
+		font 14px $f_bold
+		text-transform uppercase
+		overflow hidden
+		position relative
+		&:after
+			af()
+			wh(100%)
+			absolute top 0 left 0
+		+tablet-large()
+			wh(220px,52px)
+			p(0)
+			tr()
+			&:hover
+				color RGB($white)
+		+desktop()
+			wh(250px,64px)
+		&.with-icon
+			min-width 150px
+			df(center,center)
+			position relative
+			svg
+				transform scale(.8) translateY(-2px)
+				position absolute
+				right 18px
+				+desktop()
+					transform none
+			use
+				stroke RGB($greenDark)
+	&-green
+		border-color RGB($greenDark)
+		color RGB($greenDark)
+		+desktop()
+			&:hover
+				border-color RGB($greenDark)
+				background-color RGB($greenDark)
+.input
+	p(10px 20px 11px)
+	border-radius 2000px
+	border-bottom 4px solid RGB($greenDark)
+	background RGB($white)
+	box-shadow 0 0 4px 0 rgba(0,0,0,.1)
+	font-size 1em
+	+desktop()
+		p(22px 20px)
+
+.head
+	w(100%)
+	p(20px 0)
+	font-size 14px
+	background-color RGB($grayLight)
+	position relative
+	tr()
+	+tablet-large()
+		p(30px 0)
+		button,a
+			text-transform uppercase
+	+desktop()
+		p(42px 0 62px)
+	&.active
+		.head
+			&-burger
+				.line
+					&:first-child
+						transform translateX(6px)
+					&:last-child
+						transform translateX(10px)
+			&-menu
+				transform translateX(0)
+	&.hidden
+		.section
+			transform translateY(-150px)
+	.section
+		tr(1s cubic-bezier(0,0,0,1) .3s)
+		+tablet()
+			df(stretch,space-between)
+		+tablet-large()
+			justify-content initial
+	&-row
+		df(center,space-between)
+		position relative
+		z-index 1
+	&-logo
+		+desktop()
+			w(350px)
+			df(center,center)
+	&-burger
+		p(10px)
+		df(flex-start)
+		flex-direction column
+		row-gap 4px
+		+tablet()
+			dn()
+		.line
+			wh(22px,3px)
+			display block
+			border-radius 3px
+			background-color RGB($black)
+			tr()
+			&:first-child
+				w(16px)
+			&:last-child
+				w(12px)
+	&-menu,&-nav
+		row-gap 40px
+		df(flex-start)
+		flex-direction column
+		+tablet()
+			flex-direction row
+	&-menu
+		wh(100vw,100vh)
+		p(0 20px)
+		background-color RGB($grayLight)
+		justify-content center
+		position fixed
+		top 0
+		left 0
+		transform translateX(100%)
+		tr()
+		+tablet()
+			wh(initial)
+			p(0)
+			column-gap 40px
+			align-items center
+			background none
+			position static
+			transform none
+		+tablet-large()
+			w(100%)
+			column-gap 0
+	&-nav
+		w(100%)
+		+tablet()
+			m(0)
+			column-gap 20px
+		+tablet-large()
+			w(100%)
+			justify-content center
+			column-gap 40px
+	&-auth
+		df(flex-start)
+		row-gap 20px
+		flex-direction column
+		margin-top 50px
+		column-gap 20px
+		+tablet-large()
+			flex-shrink 0
+			.btn-green
+				m(0 auto)
+			.head-btn
+				w(89px)
+		+desktop()
+			w(440px)
+			column-gap 0
+	&-btn
+		font-family $f_bold
+		+tablet-large()
+			tr()
+			&:hover
+				color RGB($greenDark)
+			
+.main
+	h(200vh)
+	
+.welcome
+	.section
+		+tablet()
+			df(center)
+	&-info
+		+tablet()
+			w(69%)
+			position absolute
+		.title
+			m(20px 0)
+		&-btns
+			margin-top 36px
+			df(center)
+			column-gap 20px
+	&-img
+		+tablet()
+			margin-left auto
