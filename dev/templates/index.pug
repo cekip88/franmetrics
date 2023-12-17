@@ -275,7 +275,9 @@ block content
 				h3.confidence-subtitle.advantages-subtitle
 					| The better we do your business,#[br] the better our &mdash; 200+ Clients
 		.clients-list
-			.clients-item
+			-for(let logo of logos)
+				.clients-item
+					+img('/logos/'+logo)
 	section.reviews
 		.section
 			.row.confidence-row
@@ -283,7 +285,7 @@ block content
 					| From automation and marketing
 					| #[br] to synchronization
 				h3.confidence-title
-					| The tasks that our
+					| The tasks that our#[br]
 					| #[span.green system solves]
 			.reviews-list
 				.review-item
