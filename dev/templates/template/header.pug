@@ -1,24 +1,27 @@
+include ../../../../../core/mixins/mixins.pug
 header.head.hidden
 	.section
 		.head-row
 			a(href='#').head-logo
 				+img('logotype.png')
-			button(data-click="front:burgerClick").head-burger
+			button(data-click="front:openMenu").head-burger
 				span.line
 				span.line
 				span.line
 		.head-menu
 			nav.head-nav
-				a(href="#").head-btn
+				a(href="/features").head-btn
 					span Features
-				a(href="#").head-btn
+				a(href="/membership").head-btn
 					span Membership
-				a(href="#").head-btn
+				a(href="/blog").head-btn
 					span Blog
-				a(href="#").head-btn
+				a(href="/about").head-btn
 					span About
 			.head-auth
 				button.head-btn.btn-green
-					span Log In
+					span.btn-inner Log In
 				button.head-btn
-					span Sign Up
+					span.btn-inner Sign Up
+				.head-copy
+					| © FRANMETRICS, 1855 — 2024

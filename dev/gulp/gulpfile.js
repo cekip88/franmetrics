@@ -38,12 +38,12 @@ function images(){
 		imagemin.gifsicle({interlaced: true}),
 		imagemin.mozjpeg({quality: 75, progressive: true}),
 		imagemin.optipng({optimizationLevel: 5}),
-		imagemin.svgo({
+/*		imagemin.svgo({
 			plugins: [
 				{removeViewBox: true},
 				{cleanupIDs: false}
 			]
-		})
+		})*/
 	]))
 	.pipe(dest('../../build/img'))
 }

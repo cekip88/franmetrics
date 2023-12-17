@@ -1,13 +1,14 @@
-include  vars
-include ../../../../../core/mixins/mixins
-include ../data/data
+include  vars.pug
+include ../../../../../core/mixins/mixins.pug
+include ../data/data.pug
 doctype html
 html(lang='en')
 	include  style
 	body
-		.set
+		.set(data-move="front:parallaxMove")
 			include header
 			block main
 				main.main
 					block content
+					include subs
 			include footer

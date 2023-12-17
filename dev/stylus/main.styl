@@ -1,5 +1,129 @@
-@import "../../../../core/mixins/reset.styl"
 @import mixins
 @import vars
 @import groups
+
+*
+	margin: 0
+	padding: 0
+	line-height: 1.15
+	box-sizing: border-box
+	outline: 0
+	text-decoration: none
+	-webkit-text-size-adjust: 100%
+
+a
+	color: #000
+h1,h2,h3,h4,h5,h6
+	font-weight: 500
+	font-size: 1em
+
+em,strong,i,b,address,cite
+	font-style: normal
+	font-weight: 500
+
+ul,ol
+	list-style: none
+
+input[type='submit'],button
+	cursor: pointer
+	background: transparent
+	border: 0
+
+img
+	max-width: 100%
+.title
+	df({
+		df:'.title'
+		ali:'flex-start'
+	})
+	font 2em $f_bold
+	flex-direction column
+	text-transform uppercase
+	letter-spacing -0.02em
+	+tablet()
+		font-size 3em
+	+desktop()
+		font-size 4em
+		line-height 4.375em
+	.green
+		color RGB($greenDark)
+.section
+	w(100%)
+	p(0 20px)
+	+desktop()
+		w(1238px)
+		m(0 auto)
+		p(0)
+.green
+	color RGB($greenDark)
+.ttu
+	text-transform uppercase
+.bold
+	font-family $f_bold
+
+.btn
+	df({
+		df:'.btn'
+		ali:'center'
+		jus:'center'
+	})
+	border-color RGB($black)
+	color RGB($black)
+	+desktop()
+		&:hover
+			border-color RGB($black)
+			background-color RGB($black)
+	&,&-green
+		p(11px 20px 9px)
+		min-width 100px
+		border 2px solid
+		border-radius 59px
+		font 14px $f_bold
+		text-transform uppercase
+		overflow hidden
+		position relative
+		backdrop-filter: blur(2px)
+		.btn-inner
+			position relative
+			z-index 2
+		+tablet-large()
+			wh(220px,52px)
+			p(0)
+			tr()
+			&:hover
+				color RGB($white)
+		+desktop()
+			wh(250px,64px)
+		&.with-icon
+			min-width 150px
+			df({
+				ali:'center'
+				jus:'center'
+			})
+			position relative
+			svg
+				transform scale(.8) translateY(-2px)
+				position absolute
+				right 18px
+				+desktop()
+					transform none
+			use
+				stroke RGB($greenDark)
+	&-green
+		border-color RGB($greenDark)
+		color RGB($greenDark)
+		+desktop()
+			&:hover
+				color #fff
+				border-color RGB($greenDark)
+				background-color RGB($greenDark)
+.input
+	p(10px 20px 11px)
+	border-radius 2000px
+	border-bottom 4px solid RGB($greenDark)
+	background RGB($white)
+	box-shadow 0 0 4px 0 rgba(0,0,0,.1)
+	font-size 1em
+	+desktop()
+		p(22px 20px)
 @import front

@@ -62,6 +62,9 @@ class _G_Control{
 	overHandler(e){
 		return prepareHandler(e,'over');
 	}
+	moveHandler(e){
+		return prepareHandler(e,'move');
+	}
 	dragStartHandler(e){
 		return prepareHandler(e,'dragStart');
 	}
@@ -95,6 +98,7 @@ class _G_Control{
 		_.container.addEventListener('keydown',_.keyDownHandler);
 		_.container.addEventListener('mouseover',_.overHandler);
 		_.container.addEventListener('mouseout',_.outHandler);
+		_.container.addEventListener('mousemove',_.moveHandler);
 		_.container.addEventListener('mouseleave',_.leaveHandler);
 		_.container.addEventListener('dragstart',_.dragStartHandler);
 		_.container.addEventListener('dragenter',_.dragEnterHandler);

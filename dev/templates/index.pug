@@ -17,4 +17,292 @@ block content
 					button.btn
 						span Explore
 			.welcome-img
-				+img('welcome-img.png')
+				+img('welcome-img.png')(data-offset="50").parallax
+	section.confidence
+		.section
+			.row.confidence-row
+				h3.confidence-subtitle
+					| Trusted by thousands#[br]
+					| of customers USA
+				h2.confidence-title.page-title
+					| Confidence#[br]
+					| in #[span.green Your Business]
+			.slider.confidence-slider
+				.slide
+					.slide-row.row
+						.slide-left
+							+img('break.png')
+						.slide-right(data-offset="20").parallax
+							.slide-right_icon
+								svg.icon
+									use(xlink:href="/img/sprite.svg#chrt1")
+							h6.slide-right_title
+								| Break-Even Analysis
+							p.slide-right_text
+								| Break-even analysis with What-If
+								| Scenarios is a powerful tool that
+								| helps businesses and individuals
+								| assess the financial viability of a
+								| project or venture.
+							p.slide-right_text
+								| Break-even analysis itself involves
+								| identifying the point at which total
+								| revenue equals total costs,
+								| resulting in neither profit nor loss.
+							p.slide-right_text
+								| This point is known as the
+								| break-even point.
+			.row.slider-bottom_row
+				button.btn
+					span Learn more
+				.slider-dots
+					button.slider-dot
+					button.slider-dot
+					button.slider-dot
+					button.slider-dot
+					button.slider-dot
+				.slider-arrows
+					button.btn-arrow.left
+						svg.icon
+							use(xlink:href="/img/sprite.svg#btn-arrow")
+					button.btn-arrow.right
+						svg.icon
+							use(xlink:href="/img/sprite.svg#btn-arrow")
+	section.advantages
+		.section
+			.row.confidence-row
+				h2.confidence-title.advantages-title
+					| Our advantages#[br]
+					| are #[span.green your advantages]
+				h3.confidence-subtitle.advantages-subtitle
+					| Tested over the years#[br]
+					| and by people
+			ul.advantages-list
+				li.advantages-item
+					h5.advantages-item_title
+						svg.advantages-item_icon
+							use(xlink:href="/img/sprite.svg#earth")
+						span
+							| Data for ITEM 19
+					p.advantages-item_text
+						| Quickly get data for Item 19 of your FDD!
+				li.advantages-item
+					h5.advantages-item_title
+						svg.advantages-item_icon
+							use(xlink:href="/img/sprite.svg#gtime")
+						span
+							| Unit Level Economics
+					p.advantages-item_text
+						| Instantly see which units are thriving and which are
+						| struggling under a variety of metrics.
+				li.advantages-item
+					h5.advantages-item_title
+						svg.advantages-item_icon
+							use(xlink:href="/img/sprite.svg#chrt2")
+						span
+							| KPI Tracking
+					p.advantages-item_text
+						| See monthly or weekly KPI Scorecards consolidated or by unit.
+						| See how KPIs trend through time and how they may correlate.
+				li.advantages-item
+					h5.advantages-item_title
+						svg.advantages-item_icon
+							use(xlink:href="/img/sprite.svg#shlist")
+						span
+							| Evaluation (Field Audits)
+					p.advantages-item_text
+						| The easiest in the industry to set up and use with over 400 predefined questions.
+				li.advantages-item
+					h5.advantages-item_title
+						svg.advantages-item_icon
+							use(xlink:href="/img/sprite.svg#chat")
+						span
+							| Engagement
+					p.advantages-item_text
+						| Keep your team and franchisees in the loop with custom notifications
+						| based on your performance goals.
+				li.advantages-item
+					h5.advantages-item_title
+						svg.advantages-item_icon
+							use(xlink:href="/img/sprite.svg#sbook")
+						span
+							| Full Service Books
+					p.advantages-item_text
+						| Get FREE reporting when we do the books!
+	section.reporting
+		.section.reporting-section
+			h3.reporting-uptitle
+				| Franchise metrics that matter
+			h4.reporting-title
+				| Benchmarking #[span.green KPI Analysis] Franchisee Reporting
+			h5.reporting-bottomtitle
+				| Get your ACTIONABLE DATA now!
+			button.btn-green
+				span
+					| Lets demo
+			.reporting-badge.first(data-offset="50").parallax
+				.reporting-badge_icon
+					svg
+						use(xlink:href="/img/sprite.svg#ch")
+				.reporting-badge_right
+					h5.reporting-badge_title Lorem Ipsum Title
+					p.reporting-badge_text
+						| Lorem ipsum is placeholder text commonly used in the graphic.
+			.reporting-badge.second(data-offset="50").parallax
+				.reporting-badge_icon
+					svg
+						use(xlink:href="/img/sprite.svg#ch")
+				.reporting-badge_right
+					h5.reporting-badge_title Lorem Ipsum Title
+					p.reporting-badge_text
+						| Lorem ipsum is placeholder text commonly used in the graphic.
+			.reporting-badge.third(data-offset="50").parallax
+				.reporting-badge_icon
+					svg
+						use(xlink:href="/img/sprite.svg#ch")
+				.reporting-badge_right
+					h5.reporting-badge_title Lorem Ipsum Title
+					p.reporting-badge_text
+						| Lorem ipsum is placeholder text commonly used in the graphic.
+	section.profits
+		.section
+			.row.confidence-row
+				h3.confidence-subtitle
+					| Increase Profits,#[br]
+					| Maximize Transparency
+				h2.confidence-title.page-title
+					| Get a #[span.green Score Card]#[br]
+					| Dump the #[span.green P&L]
+			.profits-accordeon
+				.profits-accordeon-item.-active
+					h5.profits-accordeon-item_title
+						span Many of the figures are not actionable
+						button.profits-accordeon-item_btn
+					p.profits-accordeon-item_text
+						| There is no differentiating between vital and non-vital data.
+						| Does anyone really need to know they paid the same rent last
+						| month as they paid the month before and they will pay again next month?
+						| Probably not.
+				.profits-accordeon-item
+					h5.profits-accordeon-item_title
+						span It has lagging indicators, not leading indicators
+						button.profits-accordeon-item_btn
+					p.profits-accordeon-item_text
+						| Sales were down last month! It took you until the 15th to look at your P&L,
+						| and now the issue is as much as 45 days old! Could you be tracking specific
+						| numbers sooner and look at other figures that may have been causing lower sales,
+						| such as customer service scores?
+				.profits-accordeon-item
+					h5.profits-accordeon-item_title
+						span It can be misleading
+						button.profits-accordeon-item_btn
+					p.profits-accordeon-item_text
+						| Most businesses have every incentive to make that bottom line as LOW as possible for tax purposes.
+						| Also, franchisees may have major repairs or other one-time expenses showing a result not related
+						| to their actual performance. Most people looking at a P&L go right to the bottom line and make
+						| an instant judgment without having the time to do a full investigation.
+						| Sure, the franchisee probably knows why,
+						| but the franchisor is most likely not going to have the conversation to figure out the issue.
+				.profits-accordeon-item
+					h5.profits-accordeon-item_title
+						span It is missing other crucial data that you need to track
+						button.profits-accordeon-item_btn
+
+					p.profits-accordeon-item_text
+						| If you are taking the time to look at the unit level performance,
+						| shouldn't you be looking at all the relevant data all in one place?
+			button.btn.profits-btn
+				span
+					| Lets demo
+	section.suitable
+		.section
+			.row.confidence-row
+				h2.confidence-title.advantages-title
+					| Suitable for#[br]
+					| a #[span.green wide range] of B2B
+				h3.confidence-subtitle.advantages-subtitle
+					| Trusted by thousands#[br]
+					| of customers USA
+			.suitable-tabs
+				button.suitable-tab
+					span Retail
+				button.suitable-tab
+					span Fast food
+				button.suitable-tab
+					span Hairdressers
+				button.suitable-tab
+					span Eyewar stores
+				button.suitable-tab
+					span Beauty salons
+			.suitable-tab-content
+				+img('units.jpg').first
+				+img('indicators.jpg').second
+				.reporting-badge.third(data-offset="50").parallax
+					.reporting-badge_icon
+						svg
+							use(xlink:href="/img/sprite.svg#ch")
+					.reporting-badge_right
+						h5.reporting-badge_title Lorem Ipsum Title
+						p.reporting-badge_text
+							| Lorem ipsum is placeholder text commonly used in the graphic.
+	section.showcase
+		.section
+			.row.confidence-row
+				h2.confidence-subtitle
+					| Try our software for 30 days with no
+					| #[br] obligations or payment information required
+				h3.confidence-title
+					| The showcase of
+					| #[span.green Franmetrics capabilities]
+			.row.showcase-row
+				.showcase-left
+					h6.showcase-title
+						| Interested in Pricing
+					p.showcase-text
+						| Check out the pricing for our software, as well as a pricing calculator
+						| to figure out exactly how much your Franchise will cost before even making a call.
+					.btn-green.btn
+						| Pricing
+				.showcase-right
+					.showcase-video
+						iframe(src="https://www.youtube.com/embed/-_5S7rL-COs")
+	section.clients
+		.section
+			.row.confidence-row
+				h2.confidence-title.advantages-title
+					| Some of#[br]
+					| #[span.green our Clients]
+				h3.confidence-subtitle.advantages-subtitle
+					| The better we do your business,#[br] the better our &mdash; 200+ Clients
+		.clients-list
+			.clients-item
+	section.reviews
+		.section
+			.row.confidence-row
+				h2.confidence-subtitle
+					| From automation and marketing
+					| #[br] to synchronization
+				h3.confidence-title
+					| The tasks that our
+					| #[span.green system solves]
+			.reviews-list
+				.review-item
+					.review-item_rating
+					.review-item_text
+						| Im absolutely in love with #[strong @franmetrics.]
+						| It’s the first video calling software built for people who meet to get work done.
+						| Feeling whole lot productive.
+					.review-item-author
+						.review-item-author-img
+						.review-item-author-desc
+							.review-item-author-name
+								| Andrew Jones
+							.review-item-author-pos
+								| Owner Pizzahut
+				.slider-arrows
+					button.btn-arrow.left
+						svg.icon
+							use(xlink:href="/img/sprite.svg#btn-arrow")
+					button.btn-arrow.right
+						svg.icon
+							use(xlink:href="/img/sprite.svg#btn-arrow")
