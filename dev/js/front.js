@@ -50,6 +50,17 @@ class Front extends G_G{
 	  }
 	}
 
+	headMenuInit(){
+  	const _ = this;
+  	let links = _.head.querySelectorAll('.head-btn');
+  	links.forEach(function (link){
+  		let href = link.getAttribute('href');
+  		if (href && location.pathname.indexOf(href) >= 0) {
+  			link.classList.add('active')
+		  }
+	  })
+	}
+
 	headAppearance(){
   	const _ = this;
   	_.head.classList.remove('hidden');
@@ -128,7 +139,7 @@ class Front extends G_G{
   	_.headAppearance();
 		_.screenWidth = window.screen['width'];
 		_.screenHeight = window.screen['height'];
-
+		_.headMenuInit();
 
   };
 }

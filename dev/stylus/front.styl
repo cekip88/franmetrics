@@ -185,6 +185,8 @@ body
 			ali:'center'
 		})
 		font 1em $f_bold
+		&.active
+			color RGB($greenDark)
 		&.btn-green
 			wh(250px,64px)
 		+tablet-large()
@@ -834,6 +836,7 @@ body
 	&-img
 		wh(100%)
 		border-radius 20px
+		box-shadow 0 4px 40px 0 rgba(0,0,0,.1)
 		overflow hidden
 		+tablet-large()
 			position absolute
