@@ -16,7 +16,8 @@ class Front extends G_G{
 		_.directionX = 'left';
 		_.directionY = 'top';
     let events = [
-	    'openMenu','parallaxMove'
+	    'openMenu','parallaxMove',
+	    'showList',
     ];
     G_Bus.on(_,events);
     _.init();
@@ -33,6 +34,22 @@ class Front extends G_G{
 		  head.classList.add('active');
 	  }
   }
+	showList({item}) {
+  	const _ = this;
+  	let cont = item.previousElementSibling;
+  	if (cont.classList.contains('active')) {
+  		cont.removeAttribute('style');
+  		cont.classList.remove('active');
+  		item.textContent = 'Show';
+	  } else {
+		  cont.style = `height:${cont.firstElementChild.clientHeight}px;`
+  		item.textContent = 'Hide';
+		  setTimeout(function (){
+			  cont.classList.add('active');
+		  },350)
+	  }
+	}
+
 	headAppearance(){
   	const _ = this;
   	_.head.classList.remove('hidden');

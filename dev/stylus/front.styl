@@ -28,7 +28,6 @@ body
 		font-size 16px
 
 .set
-	overflow clip
 	padding-top 34px
 	+tablet-large()
 		p(30px 0)
@@ -241,7 +240,7 @@ body
 			margin-left auto
 //.parallax
 	//transition 0.00001s linear
-.confidence,.advantages,.reporting,.profits,.showcase
+.confidence,.advantages,.reporting,.profits,.showcase,.metrics
 	margin: 4em 0 0
 .confidence
 	+tablet-large()
@@ -539,9 +538,16 @@ body
 @keyframes logoloop
 	0%
 		transform translateX(0%)
+	50%
+		transform translateX(calc(-100% + 100vw))
 	100%
-		transform translateX(-100%)
+		transform translateX(0)
 .clients
+	&-cont
+		df({
+			df: '.clients-cont'
+		})
+		overflow hidden
 	&-item
 		df({
 			df: '.clients-item'
@@ -561,9 +567,66 @@ body
 			jus: flex-start
 			ali: center
 		})
-		w(100%)
-		flex-flow row
-		flex none
 		column-gap 10px
 		overflow visible
-		animation: logoloop 10s linear infinite
+		animation: logoloop 60s linear infinite
+		background-size cover
+		+tablet()
+			animation-duration 45s
+		+desktop()
+			animation-duration 30s
+
+
+.metrics
+	&-cont
+		height 343px
+		m(46px 0 20px)
+		overflow hidden
+		tr()
+		&.active
+			overflow visible
+	&-list
+		df({
+			df: '.metrics-list'
+			ali: stretch
+		})
+		flex-wrap wrap
+		gap 20px
+	&-item
+		w(100%)
+		p(20px 20px 28px)
+		border-radius 10px
+		background rgba(250,251,250,.6)
+		backdrop-filter blur(2px)
+		box-shadow 0 0 20px rgba(0,0,0,.04)
+		+tablet()
+			w(calc(50% - 10px))
+		+desktop()
+			w(calc((100% - 40px) / 3))
+		&-header
+			df({
+				df: '.metrics-item-header'
+				ali: center
+			})
+			column-gap 20px
+			font 20px $f_bold
+		&-index
+			wh(64px)
+			df({
+				df: '.metrics-item-index'
+				ali: center
+				jus: center
+			})
+			background-color RGBA($greenDark,.2)
+			border-radius 100%
+			color RGB($greenDark)
+		&-title
+			color RGB($black)
+		&-list
+			margin-top 20px
+			color RGBA($black,.6)
+			+desktop()
+				w(299px)
+		&-item
+			margin-left 25px
+			list-style disc

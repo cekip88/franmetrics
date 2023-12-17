@@ -274,10 +274,11 @@ block content
 					| #[span.green our Clients]
 				h3.confidence-subtitle.advantages-subtitle
 					| The better we do your business,#[br] the better our &mdash; 200+ Clients
-		.clients-list
-			-for(let logo of logos)
-				.clients-item
-					+img('/logos/'+logo)
+		.clients-cont
+			.clients-list
+				-for(let logo of logos)
+					.clients-item
+						+img('/logos/'+logo)
 	section.reviews
 		.section
 			.row.confidence-row
