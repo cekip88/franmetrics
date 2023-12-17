@@ -67,16 +67,15 @@ img
 		ali:'center'
 		jus:'center'
 	})
-	border-color RGB($black)
+	border 2px solid RGB($black)
 	color RGB($black)
 	+desktop()
 		&:hover
-			border-color RGB($black)
 			background-color RGB($black)
+			color RGB($white)
 	&,&-green
 		p(11px 20px 9px)
 		min-width 100px
-		border 2px solid
 		border-radius 59px
 		font 14px $f_bold
 		text-transform uppercase
@@ -90,8 +89,6 @@ img
 			wh(220px,52px)
 			p(0)
 			tr()
-			&:hover
-				color RGB($white)
 		+desktop()
 			wh(250px,64px)
 		&.with-icon
@@ -110,12 +107,11 @@ img
 			use
 				stroke RGB($greenDark)
 	&-green
-		border-color RGB($greenDark)
+		border 2px solid RGB($greenDark)
 		color RGB($greenDark)
 		+desktop()
 			&:hover
 				color #fff
-				border-color RGB($greenDark)
 				background-color RGB($greenDark)
 .input
 	p(10px 20px 11px)
