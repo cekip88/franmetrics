@@ -86,7 +86,7 @@ img
 		.btn-inner
 			position relative
 			z-index 2
-		+tablet-large()
+		+tablet()
 			wh(220px,52px)
 			p(0)
 			tr()
@@ -119,11 +119,18 @@ img
 				background-color RGB($greenDark)
 .input
 	p(10px 20px 11px)
+	height 64px
+	display block
 	border-radius 2000px
 	border-bottom 4px solid RGB($greenDark)
 	background RGB($white)
 	box-shadow 0 0 4px 0 rgba(0,0,0,.1)
 	font-size 1em
+	&>input
+		wh(100%)
+		border 0
+		background none
+		font-family inherit
 	+desktop()
 		p(22px 20px)
 @import front

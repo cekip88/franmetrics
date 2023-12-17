@@ -8,17 +8,21 @@ section.subscribe
 			h3.confidence-subtitle.advantages-subtitle
 				| Only useful information and tips
 		form.subscribe-form
-			label.inpt
+			label.input.subscribe-input
 				input(type="text" placeholder="Name")
-			label.inpt
+			label.input.subscribe-input
 				input(type="text" placeholder="Last name")
-			label.inpt
+			label.input.subscribe-input
 				input(type="email" placeholder="Email")
-			label.inpt
+			label.input.subscribe-input
 				input(type="text" placeholder="Type of business")
+			button.btn.with-icon.btn-green.subscribe-btn
+				span Send
+				svg
+					use(xlink:href="/img/sprite.svg#btn-arrow")
 section.intuit
 	.section
-		.row
+		.intuit-row
 			.intuit-left
 				.intuit-logo
 					+img('intuit.png')

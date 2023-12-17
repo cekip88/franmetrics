@@ -47,7 +47,6 @@ body
 		margin-bottom 62px
 		border-top 1px solid rgba(38, 50, 56, 0.10)
 		border-bottom 1px solid rgba(38, 50, 56, 0.10)
-
 	&.active
 		.head
 			&-burger
@@ -213,6 +212,18 @@ body
 			left 0
 			opacity .4
 			z-index -1
+		&:after
+			wh(100%,900px)
+			content ''
+			animation bgAnimation 15s infinite backwards linear
+			animation-direction alternate
+			background url('../img/bg-lines-full.svg') center -150px no-repeat
+			background-size: 130%
+			position absolute
+			bottom 0
+			left 0
+			opacity .4
+			z-index -1
 .welcome
 	m(4em 0 0)
 	+desktop()
@@ -240,7 +251,7 @@ body
 			margin-left auto
 //.parallax
 	//transition 0.00001s linear
-.confidence,.advantages,.reporting,.profits,.showcase,.metrics
+.confidence,.advantages,.reporting,.profits,.showcase,.metrics,.intuit
 	margin: 4em 0 0
 .confidence
 	+tablet-large()
@@ -312,6 +323,8 @@ body
 			wh(40px)
 			border-radius 64px
 			border 2px solid #263238
+			&>svg
+				stroke RGB($black)
 			&.left
 				margin-right 10px
 				svg
@@ -385,8 +398,10 @@ body
 	background RGBA($white, .6)
 	backdrop-filter blur(2px)
 	+tablet-large()
+		margin-top 0
 		position relative
 		padding 204px 0 83px
+
 	&-section
 		position relative
 	&-uptitle,&-title
@@ -523,6 +538,9 @@ body
 		border-radius 59px
 		background RGBA($black, .04)
 
+.showcase,.clients,.reviews,.subscribe,.intuit,.foot
+	+tablet-large()
+		margin-top 105px
 .showcase
 	&-left,&-text
 		margin 1em 0
@@ -531,10 +549,29 @@ body
 	&-text
 		font 16px/normal $f_reg
 		color RGBA($black,.6)
+		+tablet-large()
+			margin 20px 0 46px
 	&-video
 		iframe
 			w(100%)
 			border 0
+		+tablet-large()
+			height 100%
+			iframe
+				height 100%
+	&-row
+		+tablet()
+			display flex
+			column-gap 50px
+			margin-top 46px
+	&-left
+		+tablet()
+			w(318px)
+			flex 0 0 318px
+	&-right
+		+tablet()
+			wh(100%,484px)
+
 @keyframes logoloop
 	0%
 		transform translateX(0%)
@@ -547,7 +584,10 @@ body
 		df({
 			df: '.clients-cont'
 		})
+		margin 3em 0
 		overflow hidden
+		+tablet-large()
+			margin 46px 0
 	&-item
 		df({
 			df: '.clients-item'
@@ -576,7 +616,146 @@ body
 		+desktop()
 			animation-duration 30s
 
-
+.reviews
+	&-list
+		margin 2em 0
+		&_inner
+			overflow hidden
+			df({
+				df:'.reviews-list_inner'
+				ali: center
+			})
+			+tablet-large()
+				overflow visible
+				column-gap 50px
+	&-item
+		w(100%)
+		flex none
+		border-radius 10px
+		background-color: #f9f9f9
+		padding 20px 20px 50px
+		border 2px solid RGBA($greenDark, .2)
+		+tablet-large()
+			max-width 569px
+		&_text
+			font 18px/30px $f_reg
+			color RGBA($black,.6)
+			&>strong
+				font-family $f_bold
+		&-author
+			df({
+				df: '.reviews-item-author'
+				ali: center
+			})
+			column-gap 20px
+			margin-top 20px
+			&_img
+				wh(64px)
+				background #dd
+				border-radius 64px
+			&_name,&_pos
+				font 18px/20px $f_bold
+			&_pos
+				margin-top 6px
+				font-feature-settings:'clig' off, 'liga' off
+				font-family $f_reg
+	&-arrows
+		margin-top 20px
+.subscribe
+	&-form
+		margin-top 46px
+		+tablet-large()
+			display flex
+			flex-wrap wrap
+			column-gap 20px
+	&-input
+		margin-bottom 20px
+		+tablet-large()
+			w(609px)
+	&-btn
+		svg
+			fill $greenDark
+.intuit
+	padding 50px 0
+	background RGBA($white, .6)
+	backdrop-filter blur(2px)
+	text-align: center
+	+tablet-large()
+		padding 83px 0
+	&-row
+		+tablet-large()
+			display flex
+			column-gap 107px
+			align-items center
+.foot
+	+desktop()
+		padding-bottom 62px
+	&-title
+		font 14px/28px $f_bold
+		text-transform uppercase
+		margin-bottom 10px
+		+tablet-large()
+			margin-bottom: 20px
+	&-list
+		df({
+			df: '.foot-list'
+			ali: flex-start
+		})
+		flex-wrap wrap
+		border-bottom 2px solid RGB($greenDark)
+		padding-bottom 20px
+		+tablet-large()
+			w(100%)
+			padding-bottom 50px
+			column-gap 160px
+			justify-content space-between
+		&_item
+			df({
+				df: '.foot-list_item'
+				ali: center
+			})
+			column-gap 10px
+			margin-bottom 10px
+	&-item
+		w(50%)
+		+tablet-large()
+			w(initial)
+			flex none
+			&:nth-child(2)
+				margin-left auto
+	&-menu,&-copy
+		dn()
+		+tablet-large()
+			text-transform uppercase
+			display: block
+	&-menu
+		+tablet-large()
+			margin-right 70px
+	&-bottom
+		+tablet-large()
+			display flex
+			align-items center
+			justify-content space-between
+	&-cont
+		+desktop()
+			p(0px)
+			margin 50px 0 0
+			border-top 1px solid rgba(38, 50, 56, 0.10)
+			border-bottom 1px solid rgba(38, 50, 56, 0.10)
+	&-logo
+		display block
+		text-align center
+		padding 25px 0
+		+tablet-large()
+			w(350px)
+			padding 11px 0
+	&-copy
+		font 16px/28px $f_bold
+		&>span
+			margin-right 60px
+		&>a
+			margin-right 6px
+			color RGBA($black,.6)
 .metrics
 	&-cont
 		height 343px

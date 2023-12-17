@@ -6,23 +6,23 @@ footer.foot
 				.foot-item
 					h6.foot-title
 						| Follow us
-					ul.foot-list
+					ul.foot-list_inner
 						li.foot-list_item
 							svg.icon
 								use(xlink:href="/img/sprite.svg#fb")
 							span Facebook
 						li.foot-list_item
 							svg.icon
-								use(xlink:href="/img/sprite.svg#fb")
+								use(xlink:href="/img/sprite.svg#inst")
 							span Instagram
 						li.foot-list_item
 							svg.icon
-								use(xlink:href="/img/sprite.svg#fb")
+								use(xlink:href="/img/sprite.svg#yt")
 							span YouTube
 				.foot-item
 					h6.foot-title
 						| E-mail
-					ul.foot-list
+					ul.foot-list_inner
 						li.foot-list_item
 							span mail@franmetrics.com
 						li.foot-list_item
@@ -32,7 +32,7 @@ footer.foot
 				.foot-item
 					h6.foot-title
 						| Headquarter
-					ul.foot-list
+					ul.foot-list_inner
 						li.foot-list_item
 							span USA, New Jersey Office
 						li.foot-list_item
@@ -42,27 +42,28 @@ footer.foot
 				.foot-item
 					h6.foot-title
 						| Documents
-					ul.foot-list
+					ul.foot-list_inner
 						li.foot-list_item
 							a(href='#').green Terms of Use
 						li.foot-list_item
 							a(href='#').green Privacy policy
-
-		.head-row
-			a(href='#').head-logo
-				+img('logotype.png')
-		.foot-menu
-			nav.head-nav
-				a(href="/features").head-btn
-					span Features
-				a(href="/membership").head-btn
-					span Membership
-				a(href="/blog").head-btn
-					span Blog
-				a(href="/about").head-btn
-					span About
-			.head-copy
-				span © FRANMETRICS, 1855 — 2024
-				a(href='#')
-					| Devcube
+	.foot-cont
+		.section
+			.foot-bottom
+				a(href='#').foot-logo
+					+img('logotype.png')
+				.foot-menu
+					nav.head-nav
+						a(href="/features").head-btn
+							span Features
+						a(href="/membership").head-btn
+							span Membership
+						a(href="/blog").head-btn
+							span Blog
+						a(href="/about").head-btn
+							span About
+				.foot-copy
+					span © FRANMETRICS, 1855 — 2024
+					a(href='#')
+						| Devcube
 script(src='front.js' type="module")
