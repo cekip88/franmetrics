@@ -6,6 +6,10 @@ html(lang='en')
 	include  style
 	body
 		.set(data-move="front:parallaxMove")
+			.waves.waves-top
+				+img('bg-lines-full.svg')
+			.waves.waves-bottom
+				+img('bg-lines-full.svg')
 			include header
 			block main
 				main.main

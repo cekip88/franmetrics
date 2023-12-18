@@ -27,58 +27,101 @@ block content
 				h2.confidence-title.page-title
 					| Confidence#[br]
 					| in #[span.green Your Business]
-			.slider.confidence-slider
+			.slider.confidence-slider.faded
 				.slide
 					.slide-row.row
 						.slide-left
 							+img('break.png')
 						.slide-right(data-offset="20").parallax
-							.slide-right_icon
+							.slide-right_icon.faded
 								svg.icon
 									use(xlink:href="/img/sprite.svg#chrt1")
-							h6.slide-right_title
+							h6.slide-right_title.faded
 								| Break-Even Analysis
-							p.slide-right_text
+							p.slide-right_text.faded
 								| Break-even analysis with What-If
 								| Scenarios is a powerful tool that
 								| helps businesses and individuals
 								| assess the financial viability of a
 								| project or venture.
-							p.slide-right_text
+							p.slide-right_text.faded
 								| Break-even analysis itself involves
 								| identifying the point at which total
 								| revenue equals total costs,
 								| resulting in neither profit nor loss.
-							p.slide-right_text
+							p.slide-right_text.faded
+								| This point is known as the
+								| break-even point.
+				.slide
+					.slide-row.row
+						.slide-left
+							+img('break.png')
+						.slide-right(data-offset="20").parallax
+							.slide-right_icon.faded
+								svg.icon
+									use(xlink:href="/img/sprite.svg#chrt1")
+							h6.slide-right_title.faded
+								| Consolidated Score Cards
+							p.slide-right_text.faded
+								| Break-even analysis with What-If
+								| Scenarios is a powerful tool that
+								| helps businesses and individuals
+								| assess the financial viability of a
+								| project or venture.
+							p.slide-right_text.faded
+								| Break-even analysis itself involves
+								| identifying the point at which total
+								| revenue equals total costs,
+								| resulting in neither profit nor loss.
+							p.slide-right_text.faded
+								| This point is known as the
+								| break-even point.
+				.slide
+					.slide-row.row
+						.slide-left
+							+img('break.png')
+						.slide-right(data-offset="20").parallax
+							.slide-right_icon.faded
+								svg.icon
+									use(xlink:href="/img/sprite.svg#chrt1")
+							h6.slide-right_title.faded
+								| KPI Trends
+							p.slide-right_text.faded
+								| Break-even analysis with What-If
+								| Scenarios is a powerful tool that
+								| helps businesses and individuals
+								| assess the financial viability of a
+								| project or venture.
+							p.slide-right_text.faded
+								| Break-even analysis itself involves
+								| identifying the point at which total
+								| revenue equals total costs,
+								| resulting in neither profit nor loss.
+							p.slide-right_text.faded
 								| This point is known as the
 								| break-even point.
 			.row.slider-bottom_row
-				button.btn
+				button.btn.faded
 					span Learn more
-				.slider-dots
-					button.slider-dot
-					button.slider-dot
-					button.slider-dot
-					button.slider-dot
-					button.slider-dot
-				.slider-arrows
-					button.btn-arrow.left
+				.slider-dots#confidence-dots
+				.slider-arrows.faded
+					button.btn-arrow.left.faded#confindence-left(data-click="front:confindenceLeft")
 						svg.icon
 							use(xlink:href="/img/sprite.svg#btn-arrow")
-					button.btn-arrow.right
+					button.btn-arrow.right.faded#confindence-right(data-click="front:confindenceRight")
 						svg.icon
 							use(xlink:href="/img/sprite.svg#btn-arrow")
 	section.advantages
 		.section
 			.row.confidence-row
-				h2.confidence-title.advantages-title
+				h2.confidence-title.advantages-title.faded
 					| Our advantages#[br]
 					| are #[span.green your advantages]
-				h3.confidence-subtitle.advantages-subtitle
+				h3.confidence-subtitle.advantages-subtitle.faded
 					| Tested over the years#[br]
 					| and by people
 			ul.advantages-list
-				li.advantages-item
+				li.advantages-item.faded
 					h5.advantages-item_title
 						svg.advantages-item_icon
 							use(xlink:href="/img/sprite.svg#earth")
@@ -86,7 +129,7 @@ block content
 							| Data for ITEM 19
 					p.advantages-item_text
 						| Quickly get data for Item 19 of your FDD!
-				li.advantages-item
+				li.advantages-item.faded
 					h5.advantages-item_title
 						svg.advantages-item_icon
 							use(xlink:href="/img/sprite.svg#gtime")
@@ -95,7 +138,7 @@ block content
 					p.advantages-item_text
 						| Instantly see which units are thriving and which are
 						| struggling under a variety of metrics.
-				li.advantages-item
+				li.advantages-item.faded
 					h5.advantages-item_title
 						svg.advantages-item_icon
 							use(xlink:href="/img/sprite.svg#chrt2")
@@ -104,7 +147,7 @@ block content
 					p.advantages-item_text
 						| See monthly or weekly KPI Scorecards consolidated or by unit.
 						| See how KPIs trend through time and how they may correlate.
-				li.advantages-item
+				li.advantages-item.faded
 					h5.advantages-item_title
 						svg.advantages-item_icon
 							use(xlink:href="/img/sprite.svg#shlist")
@@ -112,7 +155,7 @@ block content
 							| Evaluation (Field Audits)
 					p.advantages-item_text
 						| The easiest in the industry to set up and use with over 400 predefined questions.
-				li.advantages-item
+				li.advantages-item.faded
 					h5.advantages-item_title
 						svg.advantages-item_icon
 							use(xlink:href="/img/sprite.svg#chat")
@@ -121,7 +164,7 @@ block content
 					p.advantages-item_text
 						| Keep your team and franchisees in the loop with custom notifications
 						| based on your performance goals.
-				li.advantages-item
+				li.advantages-item.faded
 					h5.advantages-item_title
 						svg.advantages-item_icon
 							use(xlink:href="/img/sprite.svg#sbook")
@@ -131,16 +174,16 @@ block content
 						| Get FREE reporting when we do the books!
 	section.reporting
 		.section.reporting-section
-			h3.reporting-uptitle
+			h3.reporting-uptitle.faded
 				| Franchise metrics that matter
-			h4.reporting-title
+			h4.reporting-title.faded
 				| Benchmarking #[span.green KPI Analysis] Franchisee Reporting
-			h5.reporting-bottomtitle
+			h5.reporting-bottomtitle.faded
 				| Get your ACTIONABLE DATA now!
 			button.btn-green
 				span
 					| Lets demo
-			.reporting-badge.first(data-offset="50").parallax
+			.reporting-badge.first(data-offset="50").parallax.faded
 				.reporting-badge_icon
 					svg
 						use(xlink:href="/img/sprite.svg#ch")
@@ -148,7 +191,7 @@ block content
 					h5.reporting-badge_title Lorem Ipsum Title
 					p.reporting-badge_text
 						| Lorem ipsum is placeholder text commonly used in the graphic.
-			.reporting-badge.second(data-offset="50").parallax
+			.reporting-badge.second(data-offset="50").parallax.faded
 				.reporting-badge_icon
 					svg
 						use(xlink:href="/img/sprite.svg#ch")
@@ -156,7 +199,7 @@ block content
 					h5.reporting-badge_title Lorem Ipsum Title
 					p.reporting-badge_text
 						| Lorem ipsum is placeholder text commonly used in the graphic.
-			.reporting-badge.third(data-offset="50").parallax
+			.reporting-badge.third(data-offset="50").parallax.faded
 				.reporting-badge_icon
 					svg
 						use(xlink:href="/img/sprite.svg#ch")
@@ -167,13 +210,13 @@ block content
 	section.profits
 		.section
 			.row.confidence-row
-				h3.confidence-subtitle
+				h3.confidence-subtitle.faded
 					| Increase Profits,#[br]
 					| Maximize Transparency
-				h2.confidence-title.page-title
+				h2.confidence-title.page-title.faded
 					| Get a #[span.green Score Card]#[br]
 					| Dump the #[span.green P&L]
-			.profits-accordeon
+			.profits-accordeon(data-click="front:showAccordeonItem")
 				.profits-accordeon-item.-active
 					h5.profits-accordeon-item_title
 						span Many of the figures are not actionable
@@ -248,20 +291,20 @@ block content
 	section.showcase
 		.section
 			.row.confidence-row
-				h2.confidence-subtitle
+				h2.confidence-subtitle.faded
 					| Try our software for 30 days with no
 					| #[br] obligations or payment information required
-				h3.confidence-title
+				h3.confidence-title.faded
 					| The showcase of#[br]
 					| #[span.green Franmetrics capabilities]
 			.row.showcase-row
 				.showcase-left
-					h6.showcase-title
+					h6.showcase-title.faded
 						| Interested in Pricing
-					p.showcase-text
+					p.showcase-text.faded
 						| Check out the pricing for our software, as well as a pricing calculator
 						| to figure out exactly how much your Franchise will cost before even making a call.
-					.btn-green.btn
+					.btn-green.btn.faded
 						| Pricing
 				.showcase-right
 					.showcase-video
@@ -269,10 +312,10 @@ block content
 	section.clients
 		.section
 			.row.confidence-row
-				h2.confidence-title.advantages-title
+				h2.confidence-title.advantages-title.faded
 					| Some of#[br]
 					| #[span.green our Clients]
-				h3.confidence-subtitle.advantages-subtitle
+				h3.confidence-subtitle.advantages-subtitle.faded
 					| The better we do your business,#[br] the better our &mdash; 200+ Clients
 		.clients-cont
 			.clients-list
@@ -282,15 +325,15 @@ block content
 	section.reviews
 		.section
 			.row.confidence-row
-				h2.confidence-subtitle
+				h2.confidence-subtitle.faded
 					| From automation and marketing
 					| #[br] to synchronization
-				h3.confidence-title
+				h3.confidence-title.faded
 					| The tasks that our#[br]
 					| #[span.green system solves]
 			.reviews-list
 				.reviews-list_inner
-					.reviews-item
+					.reviews-item.faded.parallax(data-offset="20")
 						.reviews-item_rating
 						.reviews-item_text
 							| Im absolutely in love with #[strong @franmetrics.]
@@ -303,7 +346,7 @@ block content
 									| Andrew Jones
 								.reviews-item-author_pos
 									| Owner Pizzahut
-					.reviews-item.parallax(data-offset="20")
+					.reviews-item.parallax(data-offset="20").faded
 						.reviews-item_rating
 						.reviews-item_text
 							| Im absolutely in love with #[strong @franmetrics.]
@@ -316,7 +359,7 @@ block content
 									| Andrew Jones
 								.reviews-item-author_pos
 									| Owner Pizzahut
-					.reviews-item.parallax(data-offset="20")
+					.reviews-item.parallax(data-offset="20").faded
 						.reviews-item_rating
 						.reviews-item_text
 							| Im absolutely in love with #[strong @franmetrics.]
@@ -330,9 +373,9 @@ block content
 								.reviews-item-author_pos
 									| Owner Pizzahut
 				.slider-arrows.reviews-arrows
-					button.btn-arrow.left
+					button.btn-arrow.left(data-click="front:reviewLeft")
 						svg.icon
 							use(xlink:href="/img/sprite.svg#btn-arrow")
-					button.btn-arrow.right
+					button.btn-arrow.right(data-click="front:reviewRight")
 						svg.icon
 							use(xlink:href="/img/sprite.svg#btn-arrow")

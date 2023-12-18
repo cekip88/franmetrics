@@ -10,10 +10,10 @@ a
 	color RGB($black)
 	
 @-webkit-keyframes bgAnimation{
-	0%{background-size: 110%}
-	50%{background-size: 120%}
-	75%{background-size: 130%}
-	100%{background-size: 140%}
+	0%{scale: 1}
+	/*50%{width: 120%}
+	75%{width: 130%}*/
+	100%{scale: 1.25}
 }
 body
 	overflow-x hidden
@@ -125,7 +125,7 @@ body
 		position fixed
 		top 0
 		left 0
-		transform translateX(100%)
+		transform translateX(200%)
 		z-index 3
 		tr()
 		+tablet()
@@ -197,33 +197,27 @@ body
 		+tablet()
 			dn()
 .set
+	overflow clip
 	+desktop()
 		position relative
 		background url('../img/bg-line.png') center
-		&:before
-			wh(100%)
-			content ''
-			animation bgAnimation 15s infinite backwards linear
-			animation-direction alternate
-			background url('../img/bg-lines-full.svg') center -150px no-repeat
-			background-size: 130%
-			position absolute
-			top 0
-			left 0
-			opacity .4
-			z-index -1
-		&:after
-			wh(100%,900px)
-			content ''
-			animation bgAnimation 15s infinite backwards linear
-			animation-direction alternate
-			background url('../img/bg-lines-full.svg') center -150px no-repeat
-			background-size: 130%
-			position absolute
-			bottom 0
-			left 0
-			opacity .4
-			z-index -1
+.waves
+	position absolute
+	opacity .4
+	z-index -1
+	left 0
+	animation bgAnimation 15s infinite backwards linear
+	animation-direction alternate
+	&>img
+		w(100%)
+		object-fit contain
+	&-top
+		wh(110%)
+		top 0
+	&-bottom
+		wh(100%,900px)
+		animation bgAnimation 5s infinite backwards linear
+		bottom 0
 .welcome
 	m(4em 0 0)
 	+desktop()
@@ -255,6 +249,9 @@ body
 	margin: 4em 0 0
 	+desktop()
 		margin-top 104px
+.slide
+	w(100%)
+	flex none
 .confidence
 	+tablet-large()
 		margin-top 30px
@@ -274,7 +271,12 @@ body
 		+tablet-large()
 			align-items center
 	&-slider
+		df({
+			df: '.confidence-slider',
+			ali: flex-start
+		})
 		margin-top 2em
+		overflow hidden
 		+tablet-large()
 			margin 44px 0 20px
 		.slide-right
@@ -299,6 +301,9 @@ body
 	+tablet-large()
 		display flex
 		justify-content space-between
+.slide
+	&-left,&-right
+		transition .55s ease-in
 .slider
 	&-bottom
 		&_row
@@ -319,6 +324,8 @@ body
 		wh(12px)
 		border-radius 20px
 		background #263238
+		&.active,&:hover
+			background-color RGB($greenDark)
 	&-arrows
 		margin-left auto
 		.btn-arrow
@@ -467,6 +474,7 @@ body
 				df:'.profits-accordeon-item'
 				jus: center
 			})
+			cursor pointer
 			transition .35s ease
 			flex-direction column
 			padding 20px 0
@@ -954,3 +962,23 @@ body
 		&-text
 			position absolute
 			left 78px
+
+::-webkit-scrollbar
+	w(7px)
+
+::-webkit-scrollbar-track
+	background #f1f1f1
+
+::-webkit-scrollbar-thumb
+	background #888
+	border-radius 3.5px
+
+::-webkit-scrollbar-thumb:hover
+	background #555
+
+
+.faded
+	+desktop()
+		transition .3s ease
+		transform translate3d(0px, 100px, 0) scale(1.1)
+		opacity: 0
