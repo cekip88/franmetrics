@@ -185,6 +185,8 @@ body
 			ali:'center'
 		})
 		font 1em $f_bold
+		&.active
+			color RGB($greenDark)
 		&.btn-green
 			wh(250px,64px)
 		+tablet-large()
@@ -552,7 +554,7 @@ body
 	+tablet-large()
 		margin-top 105px
 .showcase
-	&-left,&-text
+	&-text
 		margin 1em 0
 	&-title
 		font 20px/normal $f_bold
@@ -562,25 +564,30 @@ body
 		+tablet-large()
 			margin 20px 0 46px
 	&-video
+		height 100%
 		iframe
-			w(100%)
+			wh(100%)
 			border 0
-		+tablet-large()
-			height 100%
-			iframe
-				height 100%
 	&-row
-		+tablet()
+		margin-top 2em
+		+tablet-large()
 			display flex
 			column-gap 50px
+		+desktop()
 			margin-top 46px
 	&-left
-		+tablet()
+		margin-bottom 1em
+		+tablet-large()
 			w(318px)
 			flex 0 0 318px
+			margin-bottom 0
 	&-right
 		+tablet()
-			wh(100%,484px)
+			wh(100%,410px)
+		+tablet-large()
+			h(354px)
+		+desktop()
+			h(484px)
 
 @keyframes logoloop
 	0%
@@ -842,6 +849,7 @@ body
 	&-img
 		wh(100%)
 		border-radius 20px
+		box-shadow 0 4px 40px 0 rgba(0,0,0,.1)
 		overflow hidden
 		+tablet-large()
 			position absolute
@@ -982,3 +990,75 @@ body
 		transition .3s ease
 		transform translate3d(0px, 100px, 0) scale(1.1)
 		opacity: 0
+.pricing
+	&-labels
+		margin-top 2em
+		df({
+			df: '.pricing-labels'
+		})
+		flex-direction column
+		row-gap 20px
+		+tablet()
+			flex-wrap wrap
+			flex-direction row
+			justify-content center
+			column-gap 20px
+		+tablet-large()
+			padding-bottom 30px
+			flex-wrap nowrap
+		+desktop()
+			margin-top 46px
+			padding-bottom 57px
+			column-gap 45px
+	&-label
+		+tablet()
+			w(calc(50% - 10px))
+		+tablet-large()
+			position relative
+		&:after
+			+tablet-large()
+				af()
+				wh(calc(100% - 30px),100%)
+				border-radius 10px
+				background rgba(38,50,56,.1)
+				box-shadow 0 4px 40px 0 rgba(0,0,0,.06)
+				backdrop-filter blur(4px)
+				position absolute
+				bottom -30px
+				right 0
+			+desktop()
+				bottom -57px
+		&:nth-child(2):after
+			+tablet-large()
+				background-color RGBA($greenDark,.6)
+		&-inner
+			p(20px 20px 28px)
+			border-radius 10px
+			background-color RGB($white)
+			border 1px solid RGBA($greenDark,.2)
+			+tablet-large()
+				w(calc(100% - 30px))
+				position relative
+				z-index 1
+			+desktop()
+				p(40px 40px 58px)
+	&-subtitle
+		margin-bottom 47px
+		color RGBA($black,.6)
+	&-subtitle,&-title
+		font 20px $f_bold
+	&-title
+		padding-bottom 30px
+		&:after
+			af()
+			wh(100%,1px)
+			margin-top 30px
+			background-color RGB($gray)
+	&-item
+		margin-left 25px
+		list-style disc
+		font-family $f_bold
+		&:not(:last-child)
+			margin-bottom 10px
+			+tablet-large()
+				margin-bottom 30px
