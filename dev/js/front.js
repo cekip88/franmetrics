@@ -52,6 +52,8 @@ class Front extends G_G{
 	  }
 	}
 
+	reviewRight(){}
+
 	headMenuInit(){
   	const _ = this;
   	let links = _.head.querySelectorAll('.head-btn');
