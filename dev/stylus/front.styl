@@ -256,10 +256,13 @@ body
 			top -30px
 //.parallax
 	//transition 0.00001s linear
-.confidence,.advantages,.reporting,.profits,.showcase,.metrics,.intuit,.pluses,.calc,.subscribe
+.confidence,.advantages,.profits,.showcase,.metrics,.intuit,.pluses,.calc,.subscribe
 	margin: 4em 0 0
-	+desktop()
+	+tablet-large()
 		margin-top 104px
+.clients,.reviews,.foot
+	+tablet-large()
+		margin-top 105px
 .slide
 	w(100%)
 	flex none
@@ -560,9 +563,6 @@ body
 		border-radius 59px
 		background RGBA($black, .04)
 
-.showcase,.clients,.reviews,.subscribe,.intuit,.foot
-	+tablet-large()
-		margin-top 105px
 .showcase
 	&-text
 		margin 1em 0
