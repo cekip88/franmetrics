@@ -1,0 +1,46 @@
+extends template/main
+append vars
+	-
+		page_title = 'Blog'
+block content
+	section.blog
+		.section
+			.row.confidence-row
+				h2.confidence-title.advantages-title.faded
+					| Fran Metrics#[br]
+					| #[span.green Blog]
+				h3.confidence-subtitle.advantages-subtitle.faded
+					| For Franchisors#[br]
+					| & Franchisees
+			.metrics-cont.blog-cont
+				.blog-list
+					-for(let i=0; i < 15;i++)
+						.blog-item
+							.blog-item_img
+								+img('blog.jpg')
+							.blog-item_date
+								| 03.10.2021
+							.blog-item_title
+								| Franchise Data Problems Are Really Culture Problems
+							.blog-item_text
+								| Join Jason McReynolds, Founder and CEO of FranMetrics as we discuss how franchisor
+								| data requirements and needs are changing, what's potentially on the horizon for franchise data regulation,
+								| why franchise system data problems are really cultural problems, and more.
+				.blog-pagination
+					.blog-pagination_prev
+						svg
+							use(xlink:href="/img/sprite.svg#btn-arrow")
+						span Previous
+					.blog-pagination_pages
+						button.blog-pagination_digit.active 1
+						button.blog-pagination_digit 2
+						button.blog-pagination_digit 3
+						button.blog-pagination_more ...
+						button.blog-pagination_digit 8
+						button.blog-pagination_digit 9
+						button.blog-pagination_digit 10
+					.blog-pagination_next
+						span Next
+						svg
+							use(xlink:href="/img/sprite.svg#btn-arrow")
+			button.btn(data-click="front:showList") More

@@ -204,12 +204,15 @@ body
 		position relative
 		background url('../img/bg-line.png') center
 .waves
-	position absolute
-	opacity .4
-	z-index -1
-	left 0
-	animation bgAnimation 15s infinite backwards linear
-	animation-direction alternate
+	display none
+	+desktop()
+		display block
+		position absolute
+		opacity .4
+		z-index -1
+		left 0
+		animation bgAnimation 15s infinite backwards linear
+		animation-direction alternate
 	&>img
 		w(100%)
 		object-fit contain
@@ -220,6 +223,10 @@ body
 		wh(100%,900px)
 		animation bgAnimation 5s infinite backwards linear
 		bottom 0
+	&-top,&-bottom,&>img
+		dn()
+		+desktop()
+			display: block
 .welcome
 	m(4em 0 0)
 	+desktop()
@@ -241,13 +248,15 @@ body
 			column-gap 20px
 	&-img
 		position relative
-		top -30px
+		top 20px
 		z-index 0
 		+tablet()
 			margin-left auto
+		+desktop()
+			top -30px
 //.parallax
 	//transition 0.00001s linear
-.confidence,.advantages,.reporting,.profits,.showcase,.metrics,.intuit,.pluses
+.confidence,.advantages,.reporting,.profits,.showcase,.metrics,.intuit,.pluses,.calc,.subscribe
 	margin: 4em 0 0
 	+desktop()
 		margin-top 104px
@@ -647,6 +656,7 @@ body
 				column-gap 50px
 	&-item
 		w(100%)
+		transition .35s ease
 		flex none
 		border-radius 10px
 		background-color: #f9f9f9
@@ -1062,3 +1072,204 @@ body
 			margin-bottom 10px
 			+tablet-large()
 				margin-bottom 30px
+.calc
+	&-content
+		margin-top 30px
+		+tablet()
+			display flex
+			column-gap 39px
+	&-right
+		+tablet()
+			max-width 400px
+			display flex
+			justify-content space-between
+			flex-wrap wrap
+			.calc-block
+				w(48%)
+				&_green
+					w(100%)
+		+desktop()
+			max-width 535px
+			.calc-block
+				padding: 31px 40px 27px
+			.calc-block_green
+				padding: 33px 16px
+	&-left
+		+desktop()
+			width 669px
+	&-block
+		padding 20px
+		border-radius 10px
+		background RGBA($white, .60)
+		box-shadow 0px 4px 20px 0px RGBA(0, 0, 0, .06)
+		backdrop-filter blur(2px)
+		margin-bottom 20px
+		+desktop()
+			height 148px
+			padding 40px
+		&_title
+			font 20px/normal $f_bold
+			+desktop()
+				margin-bottom 13px
+		&_icon
+			wh(44px)
+			df({
+				df: '.calc-block_icon'
+				ali: center
+				jus: center
+			})
+			flex 0 0 44px
+			border-radius 44px
+			background-color RGBA($greenDark,.2)
+			+desktop()
+				height 64px
+				flex 0 0 64px
+				border-radius 64px
+		&_green
+			df({
+				df: '.calc-block_green'
+				ali: center
+			})
+			border: 2px solid RGBA($greenDark,.2)
+			column-gap 10px
+		&_text
+			font-size 12px
+			+desktop()
+				font-size 16px
+		.radio
+			margin-bottom 10px
+
+
+	&-actions
+		margin-top: 20px
+		+desktop()
+			display flex
+			column-gap 39px
+			margin-top 0
+
+.team
+	text-align center
+	&-content
+		margin-top 23px
+		+desktop()
+			margin-top 46px
+	&-item
+		margin-bottom 20px
+		&_name
+			font 20px/normal $f_bold
+		&_role
+			margin 10px 0 20px
+			font 16px/normal $f_bold
+		&_text
+			color RGBA($black,.6)
+			+desktop()
+				text-align left
+				padding-left 10px
+	&-list
+		+tablet()
+			display flex
+			justify-content space-between
+			flex-wrap wrap
+		+desktop()
+			justify-content flex-start
+			column-gap 60px
+	&-item
+		+tablet()
+			w(30%)
+			margin-bottom: 95px
+.blog
+	&-cont
+		+desktop()
+			padding 0 18px
+			height 820px
+	&-list
+		+tablet()
+			display: flex
+			flex-wrap wrap
+			column-gap 20px
+		+desktop()
+			column-gap 46px
+	&-item
+		max-width 100%
+		margin-bottom 20px
+		+tablet()
+			max-width 310px
+		+desktop()
+			max-width 369px
+		&_img
+			overflow hidden
+			border-radius 4px
+			max-height 168px
+		&_date
+			margin 20px 0 11px
+			font 16px/normal $f_bold
+		&_title
+			font 20px/normal $f_bold
+			margin-bottom: 11px
+		&_text
+			color RGBA($black,.6)
+	&-pagination
+		df({
+			df:'.blog-pagination'
+			ali: center
+			jus: center
+		})
+		margin-top 20px
+		+tablet-large()
+			justify-content space-between
+		&_digit
+			wh 40px
+			border-radius 8px
+			font 16px/20px $f_bold
+
+			&.active
+				background-color RGBA($greenDark,.2)
+		&_prev,&_next
+			display: none
+			font 16px/20px $f_bold
+			+tablet-large()
+				display flex
+				align-items center
+				column-gap 8px
+			&>svg
+				wh(20px)
+				stroke RGB($black)
+		&_prev
+			&>svg
+				transform rotate(180deg)
+		&_more
+			font 16px/20px $f_bold
+		&_pages
+			+tablet-large()
+				display: flex
+				align-items: center
+	&-inner
+		padding: 0 9px
+		+tablet()
+			padding: 0 18px
+		&_back
+			margin-top 20px
+			df({
+				df: '.blog-inner_back'
+				ali: center
+			})
+			text-transform uppercase
+		&_img
+			overflow: hidden
+			border-radius 10px
+			margin-top 15px
+			+tablet()
+				margin-top 50px
+		&_date
+			margin 20px 0 11px
+			font 16px/normal $f_bold
+		&_title
+			font 20px/normal $f_bold
+		&>p,&>ul
+			color RGBA($black,.6)
+		&>p,&>ul
+			margin-top 20px
+		&>ul>li
+			margin-bottom 7px
+		& a
+			color RGB($greenDark)

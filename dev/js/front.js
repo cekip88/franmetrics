@@ -1,71 +1,80 @@
 import G_G from "./libs/G_G.js";
 import { G_Bus } from "./libs/G_Control.js";
 class Front extends G_G{
-  constructor(){
-    super();
-    const _ = this;
+	constructor(){
+		super();
+		const _ = this;
 
-  }
-  define(){
-    const _ = this;
-    _.componentName = 'front';
+	}
+	define(){
+		const _ = this;
+		_.componentName = 'front';
 		_.head = _.f('.head');
 		_.body = document.body;
 		_.currentX = 0;
 		_.currentY = 0;
 		_.directionX = 'left';
 		_.directionY = 'top';
-    let events = [
-	    'openMenu','parallaxMove',
-	    'showList','reviewRight',
+		let events = [
+			'openMenu','parallaxMove',
+			'showList','reviewRight','reviewLeft',
 			'confindenceDot','confindenceRight','confindenceLeft',
 			'showAccordeonItem'
-    ];
-    G_Bus.on(_,events);
-    _.init();
-  }
+		];
+		G_Bus.on(_,events);
+		_.init();
+	}
 	openMenu({item}) {
-  	const _ = this;
+		const _ = this;
 		console.log(_.body)
-  	let head = item.closest('.head');
-  	if (head.classList.contains('active')) {
-		  _.body.classList.remove('non-overflow');
-		  head.classList.remove('active');
-	  } else {
-		  _.body.classList.add('non-overflow');
-		  head.classList.add('active');
-	  }
-  }
+		let head = item.closest('.head');
+		if (head.classList.contains('active')) {
+			_.body.classList.remove('non-overflow');
+			head.classList.remove('active');
+		} else {
+			_.body.classList.add('non-overflow');
+			head.classList.add('active');
+		}
+	}
 	showList({item}) {
-  	const _ = this;
-  	let cont = item.previousElementSibling;
-  	if (cont.classList.contains('active')) {
-  		cont.removeAttribute('style');
-  		cont.classList.remove('active');
-  		item.textContent = 'Show';
-	  } else {
-		  cont.style = `height:${cont.firstElementChild.clientHeight}px;`
-  		item.textContent = 'Hide';
-		  setTimeout(function (){
-			  cont.classList.add('active');
-		  },350)
-	  }
+		const _ = this;
+		let cont = item.previousElementSibling;
+		if (cont.classList.contains('active')) {
+			cont.removeAttribute('style');
+			cont.classList.remove('active');
+			item.textContent = 'Show';
+			} else {
+				let height = 0;
+				for(let i = 0; i < cont.childNodes.length;i++){
+					console.log(cont.childNodes[i])
+					if(cont.childNodes[i].nodeType == 1){
+						height+= cont.childNodes[i].clientHeight;
+					}
+
+				}
+				cont.style = `height:${height}px;`;
+				item.style.display = 'none';
+			item.textContent = 'Hide';
+				setTimeout(function (){
+					cont.classList.add('active');
+				},350)
+			}
 	}
 
 	headMenuInit(){
-  	const _ = this;
-  	let links = _.head.querySelectorAll('.head-btn');
-  	links.forEach(function (link){
-  		let href = link.getAttribute('href');
-  		if (href && location.pathname.indexOf(href) >= 0) {
-  			link.classList.add('active')
-		  }
-	  })
+		const _ = this;
+		let links = _.head.querySelectorAll('.head-btn');
+		links.forEach(function (link){
+			let href = link.getAttribute('href');
+			if (href && location.pathname.indexOf(href) >= 0) {
+				link.classList.add('active')
+			}
+		})
 	}
 
 	headAppearance(){
-  	const _ = this;
-  	_.head.classList.remove('hidden');
+		const _ = this;
+		_.head.classList.remove('hidden');
 	}
 	defineDirections(event){
 		const _ = this;
@@ -109,7 +118,7 @@ class Front extends G_G{
 		let scrolledPoints = parseInt(window.scrollY);
 		for(let item of _.fadedArr){
 			let
-				itemTop = item.demensions.top-_.screenHeight*1.225,
+				itemTop = item.demensions.top-_.screenHeight*1.13,
 				itemBottom = item.demensions.bottom;
 			let query =(scrolledPoints >= itemTop) &&	(scrolledPoints <= itemBottom);
 			if(init){
@@ -138,7 +147,7 @@ class Front extends G_G{
 		}
 	}
 	parallaxMove({item,event}){
-		const  _ = this
+		const	_ = this
 		let
 			x = event.x,
 			y = event.y;
@@ -199,7 +208,9 @@ class Front extends G_G{
 	confindenceSliderInit(){
 		const _ = this;
 		let
-			sliderCont = _.f('.confidence-slider'),
+			sliderCont = _.f('.confidence-slider');
+		if(!sliderCont) return void 0;
+		let
 			slides = sliderCont.querySelectorAll('.slide'),
 			leftBtn = _.f('#confidence-left'),
 			rightBtn = _.f('#confidence-right');
@@ -293,7 +304,7 @@ class Front extends G_G{
  					data-click="${_.componentName}:confindenceDot">
 					</button>`;
 			}else{
-				dotStr+= `<button class='slider-dot' data-pos="${i+1}"  data-click="${_.componentName}:confindenceDot">
+				dotStr+= `<button class='slider-dot' data-pos="${i+1}"	data-click="${_.componentName}:confindenceDot">
 				</button>`;
 			}
 
@@ -310,9 +321,37 @@ class Front extends G_G{
 		accordeonItem.classList.add('-active')
 		console.log(item)
 	}
+
+	reviewRight(){
+		const _ = this;
+		_.currentReviewSlide++;
+		if(_.currentReviewSlide > _.reviewSlides.length){
+			_.currentReviewSlide = _.reviewSlides.length;
+			return false;
+		}
+		let gap = (_.screenWidth > 780) ? 50 : 0;
+		let
+			currentSlide = _.reviewSlides[0],
+			width = currentSlide.offsetWidth+ gap;
+		currentSlide.style.marginLeft = `-${(_.currentReviewSlide-1)*width}px`;
+	}
+	reviewLeft(){
+		const _ = this;
+		_.currentReviewSlide--;
+		if(_.currentReviewSlide < 1){
+			_.currentReviewSlide = 1;
+			return false;
+		}
+		let gap = (_.screenWidth > 780) ? 50 : 0;
+		let
+			currentSlide = _.reviewSlides[0],
+			width = currentSlide.offsetWidth + gap;
+
+		currentSlide.style.marginLeft = `-${(_.currentReviewSlide-1)*width}px`;
+	}
 	init(){
-  	const _ = this;
-  	_.headAppearance();
+		const _ = this;
+		_.headAppearance();
 		_.screenWidth = window.screen['width'];
 		_.screenHeight = window.screen['height'];
 		_.headMenuInit();
@@ -324,7 +363,9 @@ class Front extends G_G{
 		}
 		_.currentConfidenceSlide = 1;
 		_.confindenceSliderInit();
-
-  };
+		//
+		_.reviewSlides = _.f('.reviews-item');
+		_.currentReviewSlide = 1;
+	};
 }
 new Front();

@@ -13,7 +13,7 @@ block content
 					| There is a minimum monthly#[br]
 					|  price of $200 per service
 			.pricing-labels
-				.pricing-label
+				.pricing-label.faded(data-offset='50').parallax
 					.pricing-label-inner
 						.pricing-subtitle Pricing Plan
 						h3.pricing-title Franchise Management
@@ -22,7 +22,7 @@ block content
 							li.pricing-item $15/ #[span.green Unit] UNITS 21-50
 							li.pricing-item $10/ #[span.green Unit] UNITS 51-100
 							li.pricing-item $5/ #[span.green Unit] OVER 100 UNITS
-				.pricing-label.active
+				.pricing-label.active.faded(data-offset='50').parallax
 					.pricing-label-inner
 						.pricing-subtitle Pricing Plan
 						h3.pricing-title KPI Reporting
@@ -31,7 +31,7 @@ block content
 							li.pricing-item $15/ #[span.green Unit] UNITS 21-50
 							li.pricing-item $10/ #[span.green Unit] UNITS 51-100
 							li.pricing-item $5/ #[span.green Unit] OVER 100 UNITS
-				.pricing-label
+				.pricing-label.faded(data-offset='50').parallax
 					.pricing-label-inner
 						.pricing-subtitle Pricing Plan
 						h3.pricing-title Add Weekly Score Cards
@@ -40,3 +40,74 @@ block content
 							li.pricing-item $15/ #[span.green Unit] UNITS 21-50
 							li.pricing-item $10/ #[span.green Unit] UNITS 51-100
 							li.pricing-item $5/ #[span.green Unit] OVER 100 UNITS
+	section.calc
+		.section
+			.row.confidence-row
+				h2.confidence-subtitle.faded
+					| Use the Calculator#[br]
+					| below to see your costs!
+				h3.confidence-title.faded
+					| Franchising Software #[br]
+					| #[span.green Price Calculator]
+			.row.calc-content
+				.calc-left
+					.calc-block.faded
+						h5.calc-block_title Services
+						.calc-actions
+							label.radio(for='monthly')
+								input(type='radio' id='monthly' name='services')
+								span Monthly KPI Reporting
+							label.radio
+								input(type='radio' name='services')
+								span Evals & Franchise Management
+							label.radio
+								input(type='radio' name='services')
+								span Both
+					.calc-block.faded
+						h5.calc-block_title Will you need weekly or daily reporting?
+						.calc-actions
+							label.radio
+								input(type='radio' name='reporting')
+								span Yes
+							label.radio
+								input(type='radio' name='reporting')
+								span No
+					.calc-block.faded
+						h5.calc-block_title Units
+						.calc-range
+							.range
+								input(type='number')
+								.range-start 0
+								.range-bar
+								.range-current
+									button.range-current_btn
+										.value 104
+								.range-end 250
+				.calc-right
+					.calc-block.faded
+						h5.calc-block_title Cost For Evaluations
+						.calc-actions
+							span $1,725 per month
+					.calc-block.faded
+						h5.calc-block_title Monthly KPI Reporting
+						.calc-actions
+							span $1,725 per month
+					.calc-block.faded
+						h5.calc-block_title Additional KPI Reporting
+						.calc-actions
+							span $685 per month
+					.calc-block.faded
+						h5.calc-block_title.green Total Monthly Costs
+						.calc-actions
+							strong $3,780 per month
+					.calc-block.calc-block_green.faded
+						.calc-block_icon
+							svg.icon
+								use(xlink:href="/img/sprite.svg#info")
+						p.calc-block_text
+							| *pricing shown for a minimum of 10 units invoiced together.
+							| Single units invoiced separately but part of a
+							| participating organization or Franchisor cost $35 per unit.
+
+
+
