@@ -19,7 +19,8 @@ class Front extends G_G{
 			'openMenu','parallaxMove',
 			'showList','reviewRight','reviewLeft',
 			'confindenceDot','confindenceRight','confindenceLeft',
-			'showAccordeonItem'
+			'showAccordeonItem','changeCalcServices',
+			"rangeMove"
 		];
 		G_Bus.on(_,events);
 		_.init();
@@ -349,6 +350,129 @@ class Front extends G_G{
 
 		currentSlide.style.marginLeft = `-${(_.currentReviewSlide-1)*width}px`;
 	}
+
+
+	changeCalcServices({item}){
+		const _ = this;
+		let itemId = item.id;
+		if(itemId == 'evals'){
+			_.c4 = true;
+			_.c5 = false;
+		}
+		if(itemId == 'monthly'){
+			_.c5 = true;
+			_.c4 = false;
+		}
+		if(itemId == 'both'){
+			_.c4 = true;
+			_.c5 = true;
+		}
+		if(itemId == 'weeklyYes'){
+			_.c6 = true;
+		}
+		if(itemId == 'weeklyNo'){
+			_.c6 = false;
+		}
+		console.log(itemId,_.c6)
+		_.calc();
+	}
+	rangeMove({item}){
+		const _ = this;
+		let
+			rangeValue = item.value * 1,
+			maxValue = 250;
+		_.f('.range-current').style.width = (rangeValue/maxValue * 100) + '%';
+		_.c2 = rangeValue;
+		_.f('.range-value').textContent = _.c2;
+		_.calc();
+	}
+	calc(){
+		const _ = this;
+		let calcContent = _.f('.calc-content');
+		if(!calcContent) return void 0;
+
+		let s = _.f('[name="services"]')
+		// number of units
+		let
+			c2 = _.c2,
+			c4 = _.c4, // evaluations
+			c5 = _.c5, // monthly reportings
+			c6 = _.c6, // weekly reporting
+			evaluationToolCost = 0,
+			monthlyReportingCost = 0,
+			weeklyReportingCost = 0,
+			totalCost = 0;
+
+		let
+			priceMatrix = {
+				'f5':20,'f6':15,'f7':10,'f8':5,
+				'g5':20,'g6':17.50,'g7':15,'g8':12.5,
+				'h5':11,'h6':8,'h7':5,'h8':3,
+			},
+			evaluationConditionValues= {
+				"firstLess": 11,
+				"secondLess": 21,
+				"thirdLess": 51,
+				"fourLess": 101,
+				"fiveLess": 100,
+			};
+
+
+		if(c4 == false){
+			evaluationToolCost = 0;
+		}else if(c2 < evaluationConditionValues['firstLess']){
+			evaluationToolCost = 200;
+		}else if(c2 < evaluationConditionValues['secondLess']){
+			evaluationToolCost = c2 * priceMatrix['f5'];
+		}else if(c2 < evaluationConditionValues['thirdLess']){
+			evaluationToolCost = ((priceMatrix['f5'] * 20) + ((  c2 - 20) * priceMatrix['f6']));
+		}else if(c2 < evaluationConditionValues['fourLess']){
+			evaluationToolCost = (((priceMatrix['f5']*20) + (priceMatrix['f6']*30)) + ((  c2 - 50) * priceMatrix['f7']));
+		}else if(c2 > evaluationConditionValues['fiveLess']){
+			evaluationToolCost = (((priceMatrix['f5']*20) + (priceMatrix['f6']*30) + (priceMatrix['f7'] * 50)) + (  c2 - 100) * priceMatrix['f8']);
+		}
+
+		if(c5 == false){
+			monthlyReportingCost = 0;
+		} else if(c2  < evaluationConditionValues['firstLess']){
+			monthlyReportingCost = 200; // < 11
+		} else if(c2 < evaluationConditionValues['secondLess']){
+			monthlyReportingCost = c2 * priceMatrix['g5']; // < 21
+		} else if(c2 < evaluationConditionValues['thirdLess']){
+			monthlyReportingCost = ((priceMatrix['g5'] * 20) + ((  c2 - 20) * priceMatrix['g6'])); // < 51
+		} else if(c2 < evaluationConditionValues['fourLess']){
+			monthlyReportingCost	= (((priceMatrix['g5'] * 20) + (priceMatrix['g6'] * 30)) + ((  c2 - 50) * priceMatrix['g7']));// < 101
+		} else if(c2 > evaluationConditionValues['firstLess']){
+			monthlyReportingCost = (((priceMatrix['g5'] * 20) + (priceMatrix['g6'] * 30) + (priceMatrix['g7'] * 50)) + (  c2 - 100) * priceMatrix['g8']); // > 100
+		}
+
+		if(c6 == false){
+			weeklyReportingCost = 0;
+		}else if(c2 < evaluationConditionValues['secondLess'] ){
+			weeklyReportingCost = c2 * priceMatrix['h5'];
+		}else if(c2 < evaluationConditionValues['thirdLess']){
+			weeklyReportingCost = ((priceMatrix['h5'] * 20) + ((  c2 - 20) * priceMatrix['h6']));
+		}else if(c2 < evaluationConditionValues['fourLess']){
+			weeklyReportingCost = (((priceMatrix['h5'] * 20) + (priceMatrix['h6'] * 30)) + ((  c2 - 50 ) * priceMatrix['h7']));
+		}else if(c2 > evaluationConditionValues['fiveLess']){
+			weeklyReportingCost = (((priceMatrix['h5'] * 20) + (priceMatrix['h6'] * 30) + (priceMatrix['h7'] * 50)) + (  c2 - 100) * priceMatrix['h8']);
+		}
+		//=IFS (
+		// C6 = FALSE, 0,
+		// C2 < 21,  C2 * H5,
+		// C2 <51, ((H5*20) + ((  C2 - 20) * H6)),
+		// C2 <101, (((H5*20) + (H6*30)) + ((  C2 - 50) * H7)),
+		// C2 >100, (((H5*20) + (H6*30) + (H7 * 50)) + (  C2 - 100) * H8))
+
+
+		totalCost = evaluationToolCost + monthlyReportingCost + weeklyReportingCost;
+		console.log(evaluationToolCost, monthlyReportingCost, weeklyReportingCost,totalCost);
+		_.f('#evaluationToolCost').textContent = `$${evaluationToolCost} per month`;
+		_.f('#monthlyReportingCost').textContent = `$${monthlyReportingCost} per month`;
+		_.f('#weeklyReportingCost').textContent = `$${weeklyReportingCost} per month`;
+		_.f('#totalCost').textContent = `$${totalCost} per month`;
+	}
+
 	init(){
 		const _ = this;
 		_.headAppearance();
@@ -366,6 +490,12 @@ class Front extends G_G{
 		//
 		_.reviewSlides = _.f('.reviews-item');
 		_.currentReviewSlide = 1;
+
+		_.c2 = 0;
+		_.c4 = true;
+		_.c5 = true;
+		_.c6 = true;
+		_.calc();
 	};
 }
 new Front();

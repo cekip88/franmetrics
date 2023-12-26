@@ -54,52 +54,51 @@ block content
 					.calc-block.faded
 						h5.calc-block_title Services
 						.calc-actions
-							label.radio(for='monthly')
-								input(type='radio' id='monthly' name='services')
+							label.radio(for='monthly' )
+								input(type='radio' id='monthly' name='services' data-change="front:changeCalcServices")
 								span Monthly KPI Reporting
-							label.radio
-								input(type='radio' name='services')
+							label.radio(for='evals')
+								input(type='radio' id="evals" name='services' data-change="front:changeCalcServices")
 								span Evals & Franchise Management
-							label.radio
-								input(type='radio' name='services')
+							label.radio(for='both')
+								input(type='radio' id="both" name='services' data-change="front:changeCalcServices" checked)
 								span Both
 					.calc-block.faded
 						h5.calc-block_title Will you need weekly or daily reporting?
 						.calc-actions
-							label.radio
-								input(type='radio' name='reporting')
+							label.radio(data-change="front:changeCalcServices" for='weeklyYes')
+								input(type='radio' name='reporting' id='weeklyYes' checked data-change="front:changeCalcServices")
 								span Yes
-							label.radio
-								input(type='radio' name='reporting')
+							label.radio(for='weeklyNo')
+								input(type='radio' name='reporting' id='weeklyNo' data-change="front:changeCalcServices")
 								span No
 					.calc-block.faded
 						h5.calc-block_title Units
 						.calc-range
 							.range
-								input(type='number')
 								.range-start 0
 								.range-bar
+									input(type='range' data-input="front:rangeMove" value="0" max="250").range-input
+									.range-value 0
 								.range-current
-									button.range-current_btn
-										.value 104
 								.range-end 250
 				.calc-right
 					.calc-block.faded
 						h5.calc-block_title Cost For Evaluations
 						.calc-actions
-							span $1,725 per month
+							span#evaluationToolCost $1,725 per month
 					.calc-block.faded
 						h5.calc-block_title Monthly KPI Reporting
 						.calc-actions
-							span $1,725 per month
+							span#monthlyReportingCost $1,725 per month
 					.calc-block.faded
 						h5.calc-block_title Additional KPI Reporting
 						.calc-actions
-							span $685 per month
+							span#weeklyReportingCost $685 per month
 					.calc-block.faded
 						h5.calc-block_title.green Total Monthly Costs
 						.calc-actions
-							strong $3,780 per month
+							strong#totalCost $3,780 per month
 					.calc-block.calc-block_green.faded
 						.calc-block_icon
 							svg.icon
