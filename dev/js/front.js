@@ -39,27 +39,20 @@ class Front extends G_G{
 	}
 	showList({item}) {
 		const _ = this;
-		let cont = item.previousElementSibling;
-		if (cont.classList.contains('active')) {
-			cont.removeAttribute('style');
-			cont.classList.remove('active');
-			item.textContent = 'Show';
-			} else {
-				let height = 0;
-				for(let i = 0; i < cont.childNodes.length;i++){
-					console.log(cont.childNodes[i])
-					if(cont.childNodes[i].nodeType == 1){
-						height+= cont.childNodes[i].clientHeight;
-					}
+		let cont = _.f('.metrics-cont');
 
-				}
-				cont.style = `height:${height}px;`;
-				item.style.display = 'none';
-			item.textContent = 'Hide';
-				setTimeout(function (){
-					cont.classList.add('active');
-				},350)
+		let addedHeight = cont.getAttribute('data-added-height');
+		addedHeight = addedHeight ? parseInt(addedHeight) : 0;
+
+		let height = 0;
+		for(let i = 0; i < cont.childNodes.length;i++){
+			if(cont.childNodes[i].nodeType == 1){
+				height += cont.childNodes[i].clientHeight;
 			}
+		}
+
+		cont.style = `max-height:${height + addedHeight}px;`;
+		item.style = 'opacity:0;visibility:hidden;';
 	}
 
 	headMenuInit(){

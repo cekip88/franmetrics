@@ -202,7 +202,7 @@ body
 	overflow clip
 	+desktop()
 		position relative
-		background url('../img/bg-line.png') center
+		background url('img/bg-line.png') center
 .waves
 	display none
 	+desktop()
@@ -418,8 +418,8 @@ body
 .reporting
 	margin-top 4em
 	padding 10px 0 20px
-	text-align center
 	background RGBA($white, .6)
+	text-align center
 	backdrop-filter blur(2px)
 	+tablet-large()
 		margin-top 0
@@ -427,6 +427,11 @@ body
 		padding 204px 0 83px
 
 	&-section
+		df({
+			df: '.reporting-section'
+			ali: center
+		})
+		flex-direction column
 		position relative
 	&-uptitle,&-title
 		text-transform uppercase
@@ -445,6 +450,8 @@ body
 		margin-bottom 40px
 		+tablet()
 			margin-bottom 62px
+	&-badges
+		w(100%)
 	&-badge
 		dn()
 		+desktop()
@@ -458,11 +465,11 @@ body
 			border 2px solid RGBA($greenDark, .2)
 			background RGBA($white, .6)
 			backdrop-filter blur(2px)
-			&.first
+			&:first-child
 				top -91px
-			&.second
+			&:nth-child(2)
 				bottom 10px
-			&.third
+			&:nth-child(3)
 				bottom 70px
 				right -200px
 		&_icon
@@ -668,7 +675,7 @@ body
 		&_text
 			font 18px/30px $f_reg
 			color RGBA($black,.6)
-			&>strong
+			strong
 				font-family $f_bold
 		&-author
 			df({
@@ -786,7 +793,7 @@ body
 			color RGBA($black,.6)
 .metrics
 	&-cont
-		height 371px
+		max-height 395px
 		m(2em 0 20px)
 		overflow hidden
 		tr()
@@ -826,19 +833,20 @@ body
 				ali: center
 				jus: center
 			})
+			flex-shrink 0
 			background-color RGBA($greenDark,.2)
 			border-radius 100%
 			color RGB($greenDark)
 		&-title
 			color RGB($black)
-		&-list
+		&-inner
 			margin-top 20px
 			color RGBA($black,.6)
 			+desktop()
 				w(299px)
-		&-item
-			margin-left 25px
-			list-style disc
+			li
+				margin-left 25px
+				list-style disc
 
 .pluses
 	&-row
@@ -1182,26 +1190,25 @@ body
 .blog
 	&-cont
 		+desktop()
+			max-height 820px
 			padding 0 18px
-			height 820px
 	&-list
-		+tablet()
-			display: flex
-			flex-wrap wrap
-			column-gap 20px
+		display flex
+		flex-wrap wrap
+		gap 20px
 		+desktop()
 			column-gap 46px
 	&-item
-		max-width 100%
+		width 100%
 		margin-bottom 20px
 		+tablet()
-			max-width 310px
+			width 310px
 		+desktop()
-			max-width 369px
+			width 369px
 		&_img
 			overflow hidden
 			border-radius 4px
-			max-height 168px
+			height 168px
 		&_date
 			margin 20px 0 11px
 			font 16px/normal $f_bold
@@ -1242,9 +1249,8 @@ body
 		&_more
 			font 16px/20px $f_bold
 		&_pages
-			+tablet-large()
-				display: flex
-				align-items: center
+			display: flex
+			align-items: center
 	&-inner
 		padding: 0 9px
 		+tablet()
